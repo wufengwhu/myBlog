@@ -1,0 +1,48 @@
+<div ng-controller="DataexchangedetailCtrl" class="nav-tabs-custom" style="margin-top:40px;">
+
+  <div class="box box-primary ">
+
+    <div class="box-body">
+      <div>
+        <ul class="wizard-steps">
+          <li ng-repeat="step in wizardSteps"
+              class="{{step==curStep?'active':''}} {{step.isComplete?'complete':''}}">
+            <span style="cursor:pointer;" ng-click="checkDataExchangeForm($index)?goToStep($index):''" class="step">{{step.step = ($index + 1)}}</span>
+            <span class="title">{{step.title}}</span>
+          </li>
+        </ul>
+      </div>
+      <hr/>
+      <div class="step-content pos-rel" id="step-container">
+        <div ng-include src="curStep.src"></div>
+      </div>
+      <hr/>
+      <div class="wizard-actions">
+        <div class="row">
+          <div class="col-xs-8">
+            <div>
+            </div>
+          </div>
+          <div class="col-xs-4">
+            <button class="btn btn-prev" ng-click="preView()" ng-show="curStep.title!='基础信息'" ng-cloak>
+              <i class="ace-icon fa fa-arrow-left"></i>
+              Prev
+            </button>
+            <button id="nextButton" class="btn btn-success btn-next"
+                    ng-click="checkDataExchangeForm($index)?nextView():''"
+                    ng-disabled="forms[curStep.form].$invalid"
+                    ng-show="curStep.title!='通知'" ng-cloak>
+              Next
+              <i class="ace-icon fa fa-arrow-right icon-on-right"></i>
+            </button>
+            <button class="btn btn-primary" ng-click="prepareCube();saveCube()" ng-disabled="design_form.$invalid"
+                    ng-if="curStep.title=='Overview' && state.mode=='edit'" ng-cloak>
+              Save
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>

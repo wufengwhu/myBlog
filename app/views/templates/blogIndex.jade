@@ -1,0 +1,108 @@
+//
+    Created by fengwu on 16/7/3.
+block content
+  .container-fluid.render-body(ng-controller="BlogCtrl as blog")
+    .row
+      .col-md-2.category-block.hidden-sm.hidden-xs
+        .category-top
+          | Category
+        .category-split
+        .category-list(ng-scrollbars ng-init="initCategoryList()")
+          ul.nav.nav-pills.nav-stacked
+            li(ng-class="currentCate == cate.Alias?'active':''" ng-repeat='cate in categories')
+              a(ng-if='!cate.Link' ng-href="{{'/blog' + cate.Alias? '/' + cate.Alias:''}}")
+                img(ng-src="{{cate.Img}}")
+                span="{{cate.CateName}}"
+              a(ng-if="cate.Link" target='_blank')
+                img(ng-src="{{cate.Img}}")
+                span="{{cate.CateName}}"
+      .col-md-8.col-md-offset-2.blog-list
+        .row.data-block
+          .col-md-12
+            .list-wrap
+              .row.top-bar
+                form#filterForm(ng-submit='submit()' )
+                  .col-md-7.col-sm-4.hidden-xs.list-top-left
+                    a.current(title='sort by date', sort='date') date
+                    = ' '
+                    a(title='sort by title' sort='title') title
+                    input#CateAlias.hidden(type='text', ng-model="currentCate")
+                    input#SortBy.hidden(type='text',ng-model='sortBy')
+                    input#PageIndex.hidden(type='text', ng-model='pageIndex')
+                    input#PageSize.hidden(type='text', ng-model='pageSize')
+                  .col-md-5.list-top-right
+                    .input-group
+                      .input-group-btn
+                        .btn-group.selectlist(data-resize='auto', data-initialize='selectlist')
+                          button.btn.btn-white.dropdown-toggle(data-toggle='dropdown', type='button')
+                            span.selected-label
+                            span.caret
+                            span.sr-only Toggle Dropdown
+                          ul.dropdown-menu.animated-quick.fadeInDown(role='menu')
+                            li.active(data-value='0',data-selected='true')
+                              a(href='#') full article
+                            li(data-value='1')
+                              a(href='#') title
+                            li(data-value='2')
+                              a(href='#') tag
+                            li(data-value='3')
+                              a(href='#{location_id}') date
+                          input#FilterType.hidden.hidden-field(type='text',readonly, aria-hidden="true", name='FilterType')
+                      input#Keyword.form-control(type='text',placeholder='Category', name='Keyword')
+                      .input-group-btn
+                        button#btnFilter.btn.btn-white(type='button' ng-click='')
+                          i.fa.fa-search
+                          = ' '
+                          span.hidden-sm.hidden-xs search
+              ol.list-unstyled(ng-if="posts.length > 0")
+                li(id="page{{pageIndex}}")
+                  div(ng-repeat='post in posts track by $index')
+                    pre
+                      | modalStyle={{modalStyle.right}}
+                    article-preview(post modal-style="modalStyle.right")
+              #load-list.spinner(style='display:none;' ng-show="")
+                .bounce1
+                .bounce2
+                .bounce3
+              #no-more.text-muted.text-center(style='display:none;')
+                | Reach the end
+        .row.footer
+          .col-md-12
+            footer
+              P
+                | {{currentDate}} © All Rights Reserved {{recordNo ? '|' + recordNo : ''}}
+                span.hidden-xs
+                  a(ng-href="/admin" target="_blank")
+                    | 后台管理
+          #scrollSpy.col-md-1
+            ul#page-nav.list-unstyled.hidden-sm.hidden-xs.affix-top
+              li(ng-style="heightStyle")
+
+      .col-md-2.hidden-sm.hidden-xs.empty-block
+    .post-cover
+    .post-modal.col-md-7.col-sm-12.col-xs-12(ng-style="modalStyle")
+      .modal-header
+        h4
+          a(ng-href='/blog/{{blog.post.CategoryAlias}}/{{blog.post.Alias}}'  target='_blank' title="文章标题")
+          | {{blog.post.Title}}
+      .modal-body
+        .sk-cube-grid(style='display:none;')
+          .sk-cube.sk-cube1
+          .sk-cube.sk-cube2
+          .sk-cube.sk-cube3
+          .sk-cube.sk-cube4
+          .sk-cube.sk-cube5
+          .sk-cube.sk-cube6
+          .sk-cube.sk-cube7
+          .sk-cube.sk-cube8
+          .sk-cube.sk-cube9
+        .post-content
+          div
+      .modal-footer
+        #label-foot.col-md-7.text-left.hidden-sm.hidden-xs(style='margin-top:3px;')
+        .col-md5.text-right
+          button#btnCloseModel.btn.btn-white(type='button') close
+          a#btnFullMode.btn.btn-green(href='', target='_blank')
+            i.fa.fa-external-link
+            | Full Mode
+

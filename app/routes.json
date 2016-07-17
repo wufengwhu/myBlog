@@ -1,0 +1,34 @@
+[
+  {
+    "url": "/",
+    "params": {
+      "templateUrl": "views/main.html",
+      "controller": "MainCtrl",
+      "controllerAs": "main"
+    }
+  },
+  {
+    "url": "/signUp",
+    "params": {
+      "templateUrl": "views/signUp.html",
+      "controller": "signUpCtrl",
+      "controllerAs": "signUp"
+    }
+  },
+  {
+    "url": "/select",
+    "params": {
+      "templateUrl": "views/select.html",
+      "controller": "SelectCtrl",
+      "controllerAs": "select"
+    }
+  },
+  {
+    "url": "/dataExchangeDetail",
+    "params": {
+      "templateUrl": "views/dataExchangeDetail.html",
+      "controller": "DataexchangedetailCtr",
+      "controllerAs": "dataExchangeDetail"
+    }
+  }
+]

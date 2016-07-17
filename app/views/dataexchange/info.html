@@ -1,0 +1,130 @@
+<div class="row">
+  <div class="col-md-12">
+    <ng-form name="forms.flow_info_form" novalidate>
+
+      <div class="form-group required" ng-class="{'required':state.mode == 'edit'}">
+        <div class="row">
+          <label class="col-xs-12 col-sm-3 control-label no-padding-right font-color-default">
+            <b>需求订阅号</b>
+          </label>
+
+          <div class="col-xs-12 col-sm-9"
+               ng-class="{'has-error':forms.flow_info_form.trident_id$invalid && (forms.flow_info_form.trident_id.$dirty||forms.flow_info_form.trident_id.$submitted)}">
+            <select chosen ng-model="flowMetaFrame.trident_id" ng-if="flowMode=='addNewFlow'"
+                    ng-options="model for model in modelsManager.modelTridentIdist"
+                    style="width:100%;"
+                    name="trident_id"
+                    ng-disabled="{{isEdit}}"
+                    ng-required="true"
+                    data-placeholder="select a trident id"
+                    class="chosen-select">
+              <option value=""> -- Choose trident id --</option>
+            </select>
+
+
+            <input class="form-control" ng-model="flowMetaFrame.trident_id" ng-if="state.mode=='edit'"
+                   onkeyup="value=value.replace(/[^\1-\9]/g,'')">
+
+            <small class="help-block"
+                   ng-show="forms.flow_info_form.trident_id$invalid && (forms.flow_info_form.trident_id.$dirty||forms.flow_info_form.trident_id.$submitted)">
+              Trident id is required.
+            </small>
+
+            <span ng-if="state.mode=='view'">{{flowMetaFrame.id}}</span>
+          </div>
+        </div>
+      </div>
+
+
+      <!--source db-->
+      <div class="form-group required" ng-class="{'required':state.mode == 'edit'}">
+        <div class="row">
+          <label class="col-xs-12 col-sm-3 control-label no-padding-right font-color-default">
+            <b>源库</b>
+          </label>
+
+          <div class="col-xs-12 col-sm-9">
+            <select chosen ng-model="flowMetaFrame.trident_id" ng-if="flowMode=='addNewFlow'"
+                    ng-options="model for model in modelsManager.modelTridentIdist"
+                    style="width:100%;"
+                    name="SRC_DB_ID"
+                    ng-disabled="{{isEdit}}"
+                    ng-required="true"
+                    data-placeholder="select a source db"
+                    class="chosen-select">
+              <option value=""> -- Choose source DB --</option>
+            </select>
+
+            <input ng-if="state.mode=='edit'" ng-disabled="{{isEdit}}"  type="text" class="form-control"
+                   ng-model="flowMetaFrame.name" required
+                   placeholder="You can use letters, numbers, and '_'"
+                   ng-maxlength=100 ng-pattern="/^\w+$/"/>
+
+
+            <span ng-if="state.mode=='view'">{{flowMetaFrame}}</span>
+
+          </div>
+        </div>
+      </div>
+
+      <!--target db-->
+      <div class="form-group required" ng-class="{'required':state.mode == 'edit'}">
+        <div class="row">
+
+          <label class="col-xs-12 col-sm-3 control-label no-padding-right font-color-default">
+            <b>目标库</b>
+          </label>
+
+          <div class="col-xs-12 col-sm-9">
+            <select chosen ng-model="flowMetaFrame.trident_id" ng-if="flowMode=='addNewFlow'"
+                    ng-options="model for model in modelsManager.modelTridentIdist"
+                    style="width:100%;"
+                    name="SRC_DB_ID"
+                    ng-disabled="{{isEdit}}"
+                    ng-required="true"
+                    data-placeholder="select a source db"
+                    class="chosen-select">
+              <option value=""> -- Choose source DB --</option>
+            </select>
+            <input ng-if="state.mode=='edit'" ng-disabled="{{isEdit}}" name="cube_name" type="text" class="form-control"
+                   ng-model="flowMetaFrame.name" required
+                   placeholder="You can use letters, numbers, and '_'"
+                   ng-maxlength=100 ng-pattern="/^\w+$/"/>
+
+
+            <span ng-if="state.mode=='view'">{{flowMetaFrame.id}}</span>
+
+          </div>
+        </div>
+      </div>
+
+      <div class="form-group" ng-class="{'required':stat.mode == 'edit'}">
+        <div class="row">
+          <label class="col-xs-12 col-sm-3 control-label no-padding-right font-color-default">预计使用时长</label>
+
+          <div class="col-xs-12 col-sm-9">
+            <input class="form-control" min="0" max="60" name="extract_duration" ng-model="flowMetaFrame.duration"
+                   placeholder="预计使用时长" title=" 单位分钟" type="number">
+          </div>
+
+        </div>
+      </div>
+
+      <!--Description-->
+      <div class="form-group">
+        <div class="row">
+          <label class="col-xs-12 col-sm-3 control-label no-padding-right font-color-default">
+            <b>描述</b>
+          </label>
+
+          <div class="col-xs-12 col-sm-9">
+                        <textarea ng-if="state.mode=='edit'" class="form-control box-default"
+                                  name="comment" id="comment" ng-model="cubeMetaFrame.description"></textarea>
+            <span ng-if="state.mode=='view'">{{flowMetaFrame.desc}}</span>
+          </div>
+        </div>
+      </div>
+
+    </ng-form>
+  </div>
+</div>

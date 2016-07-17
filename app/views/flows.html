@@ -1,0 +1,21 @@
+<div class="row" ng-controller="FlowsctrlCtrl">
+
+
+  <div ng-if="!loading && flowList.flows.length == 0">
+    <div no-result text="No Flow."></div>
+  </div>
+  <loading ng-if="loading" text="Loading Flows..."></loading>
+
+
+  <!--Table-->
+
+
+  <!--Pagination-->
+  <div class="row">
+    <div class="col-xs-12">
+      <flow-pagination data="cubeList.cubes" load-func="list" action="action"/>
+    </div>
+  </div>
+
+
+</div>

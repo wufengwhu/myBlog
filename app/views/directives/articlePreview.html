@@ -1,0 +1,12 @@
+
+<!--Created by fengwu on 16/7/10.
+-->
+<pre>right={{right}}</pre>
+<li ng-if="post.Source == 0">
+  <div ng-class="{{angular.element('.home-loading').length &gt; 0 ? '' : '{animated:true,fadeIn: true}'}}" uid="{{post.Alias}}" class="blog-item"><a title="点击预览" ng-click="getPreviewContent()" class="preview-link"></a>
+    <h4><a href="/blog/{{post.CategoryAlias}}/{{post.Alias}}" target="_blank" title="文章标题">{{post.Title}}</a></h4><span title="文章分类"><i class="fa fa-map-signs"></i><a href="/blog/{{post.CategoryAlias}}" target="_blank">{{post.CateName}}</a></span><span title="发布时间" class="margin-left-20"><i class="fa fa-clock-o">{{post.CreateTime}}</i></span>
+    <div class="clearfix"></div>
+    <p>{{post.Summary}}</p>
+  </div>
+  <div class="hr-line-dashed"></div>
+</li>

@@ -1,0 +1,85 @@
+<h3>通知</h3>
+<fieldset>
+  <legend>通知信息</legend>
+  <div class="form-group bootstrap3-required ">
+    <div class="control-group">
+      <label class="col-md-2 control-label" for="id_rss_task_type">通知类型</label>
+
+      <div class="col-md-10 controls" id="id_rss_task_type" style="padding-top: 0px;">
+        <label class="checkbox-inline">
+          <input type="checkbox" name="notification_type" id="notification_sms"
+                 data-validation-minchecked-minchecked="1"
+                 data-validation-minchecked-message="请至少选择一项" value="sms"> 短信
+        </label>
+        <label class="checkbox-inline">
+          <input type="checkbox" name="notification_type" id="notification_email" value="email"> 邮件
+        </label>
+
+        <p class="help-block"></p>
+      </div>
+    </div>
+  </div>
+
+  <div class="form-group bootstrap3-required ">
+    <label class="col-md-2 control-label" for="id_notification_phone">手机号码</label>
+
+    <div class="col-md-6 control-group" id="id_notification_phone">
+      <div class="input-group controls">
+        <input type="number" class="form-control" name="phone"
+               onkeyup="value=value.replace(/[^\0-\9]/g,'')"
+               data-validation-containsnumber-regex="^1[3|4|5|7|8]\d{9}$"
+               data-validation-containsnumber-message="无效号码">
+
+        <p class="help-block"></p>
+      </div>
+    </div>
+  </div>
+
+  <div class="form-group bootstrap3-required">
+    <label class="col-md-2 control-label" for="id_notification_email">
+      邮箱地址
+    </label>
+
+    <div class="col-md-6 control-group" id="id_notification_email">
+      <div class="input-group controls">
+        <input type="email" class="form-control" name="email" placeholder="服务部门接口人邮箱"
+               data-validation-email-message="地址无效">
+
+        <p class="help-block"></p>
+      </div>
+    </div>
+  </div>
+
+  <div class="form-group bootstrap3-required">
+    <label class="col-md-2 control-label" for="datetimepicker1">通知时间</label>
+
+    <div class="col-md-6 control-group">
+      <div class="form-group">
+        <label class="sr-only" for="notificationTime">通知时间</label>
+
+        <div id="datetimepicker1" class="input-group"
+             style="padding-left: 15px !important; padding-right: 15px !important; width: 204px !important;">
+          <input data-format="hh:mm:ss" type="text" class="form-control" name="notification_time"
+                 id="notificationTime"/>
+
+          <div class="input-group-addon">
+                                <span>
+                                    <i data-time-icon="fa fa-clock-o" data-date-icon="fa fa-calendar">
+                                    </i>
+                                </span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="form-group bootstrap3-required">
+    <label class="col-md-2 control-label" for="id_notification_templates">通知模板</label>
+
+    <div class="col-md-10">
+                <textarea class="form-control" cols="85" id="id_notification_templates" name="notification_templates"
+                          placeholder="通知模板内容"
+                          rows="5" maxlength="100"></textarea>
+    </div>
+  </div>
+</fieldset>

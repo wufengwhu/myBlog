@@ -1,0 +1,102 @@
+<div class="row">
+  <div class="col-md-12">
+    <ng-form name="forms.flow_source_form" novalidate>
+      <div class="form-group required" ng-class="{'required':state.mode == 'edit'}">
+        <div class="row">
+          <label class="col-xs-12 col-sm-3 control-label no-padding-right font-color-default">
+            <b>表名</b>
+          </label>
+
+          <div class="col-xs-12 col-sm-9">
+            <input class="form-control" ng-if="state.mode=='edit'" maxlength="100" name="s_table_name"
+                   placeholder="源库表名"
+                   required="required" title=" 例如dw.tablename,MySql库表名前不需要schema" type="text">
+
+                <span class="help-block" ng-if="state.mode=='edit'"><i class="fa fa-info">
+                  例如<code>dw.tablename,MySql</code>库表名前不需要<code>schema</code></i></span>
+            <span ng-if="state.mode=='view'">{{flowMetaFrame.desc}}</span>
+
+          </div>
+        </div>
+      </div>
+
+
+      <div class="form-group">
+        <div class="row">
+          <label class="col-xs-12 col-sm-3 control-label no-padding-right font-color-default">
+            导出并行任务数
+          </label>
+
+          <div class="col-xs-12 col-sm-9">
+            <input class="form-control" min="0" ng-if="state.mode=='edit'"
+                   name="mr_job_parallelism" placeholder="用来指定从hive导出数据的并发度"
+                   type="number" value="1"><span class="help-block"><i class="fa fa-info">
+            用来指定从hive导出数据的并发度</i></span>
+          </div>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <div class="row">
+          <label class="col-xs-12 col-sm-3 control-label no-padding-right font-color-default"><b>动态参数列表</b></label>
+
+          <div class="col-xs-12 col-sm-9">
+            <input class="form-control" ng-if="state.mode=='edit'" maxlength="200" name="dynamic_parameter_list"
+                   placeholder="用,分隔, 命令行调用时按照列表顺序传参,例如:param1,param2,...paramX" type="text">
+            <span class="help-block" ng-if="state.mode=='edit'"><i class="fa fa-info"> 用<code>,</code>分隔,
+              命令行调用时按照列表顺序传参,例如:<code>param1,param2,...paramX</code></i></span>
+
+            <span ng-if="state.mode=='view'">{{flowMetaFrame}}</span>
+          </div>
+        </div>
+      </div>
+
+
+      <div class="form-group " ng-class="{'required':state.mode == 'edit'}">
+        <div class="row">
+          <label class="col-xs-12 col-sm-3 control-label no-padding-right font-color-default">
+            <b>Select 语句</b>
+          </label>
+
+          <div class="col-xs-12 col-sm-9">
+            <section>
+              <div ui-ace="{useWrapMode : true,
+                                      showGutter: true,
+                                      theme:'monokai',
+                                      mode: 'sql'}"
+                   ng-model="queryString"></div>
+            </section>
+
+            <!--<div class="pull-right">-->
+            <!--<label>LIMIT</label>-->
+            <!--<input type="text" style="width:100px;" class="inline form-control" ng-model="rowsPerPage"-->
+            <!--ng-pattern="/^\d+$/" ng-blur="checkLimit()"/>-->
+            <!--<button class="btn btn-sm btn-primary" ng-click="submitQuery()" ng-disabled="query_panel.$invalid">-->
+            <!--Submit-->
+            <!--</button>-->
+            <!--</div>-->
+          </div>
+        </div>
+      </div>
+
+
+      <div class="form-group">
+        <div class="row">
+          <label class="col-xs-12 col-sm-3 control-label no-padding-right font-color-default">
+            <b>后处理sql</b>
+          </label>
+
+          <div class="col-xs-12 col-sm-9">
+                <textarea class="form-control" cols="85" ng-if="state.mode=='edit'"
+                          name="hive_posttreatment_sql" placeholder="默认为空" rows="1"
+                          title=" 例如:select count(1) as num from dw.tablename"></textarea>
+            <span class="help-block" ng-if="state.mode=='edit'">
+              <i class="fa fa-info"> 例如:<code>select count(1) as num from
+                dw.tablename</code></i></span>
+          </div>
+        </div>
+      </div>
+    </ng-form>
+
+  </div>
+</div>

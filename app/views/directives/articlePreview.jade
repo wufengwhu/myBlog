@@ -1,0 +1,23 @@
+//
+   Created by fengwu on 16/7/10.
+pre
+  | right={{right}}
+li(ng-if="post.Source == 0")
+  .blog-item(ng-class="{{angular.element('.home-loading').length > 0 ? '' : '{animated:true,fadeIn: true}'}}" uid="{{post.Alias}}")
+    a.preview-link(title="点击预览" ng-click="getPreviewContent()")
+    h4
+      a(href='/blog/{{post.CategoryAlias}}/{{post.Alias}}'  target='_blank' title="文章标题")
+        | {{post.Title}}
+    span(title="文章分类")
+      i.fa.fa-map-signs
+      a(href="/blog/{{post.CategoryAlias}}"  target="_blank")
+        | {{post.CateName}}
+    span.margin-left-20(title="发布时间")
+      i.fa.fa-clock-o
+        | {{post.CreateTime}}
+    .clearfix
+    p
+      | {{post.Summary}}
+  .hr-line-dashed
+
+
