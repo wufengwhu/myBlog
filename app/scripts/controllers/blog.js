@@ -42,23 +42,31 @@ angular.module('learnAngularApp')
     $scope.pageSize = 10;
     $scope.sortBy = 'date';
 
-    $scope.scrollConfig =
+    $scope.scrollConfig = {};
+
+    $scope.closeModal = function() {
+      //$(".post-modal").css("right", "-1200px");
+      $scope.modalStyle.right = '-1200px';
+      //$(".post-cover").fadeOut();
+      angular.element(".post-cover").fadeOut();
+      $("body").removeClass("modal-open");
+    };
 
 
-      /*获取全部分类*/
-      BlogService.Category.query({}, function (resp) {
-        $scope.categories = resp;
-        $scope.categories.unshift(BlogService.getAll());
-        $scope.categories.push(BlogService.getOther());
-        //取得当前分类对象数据
-        $scope.cate = BlogService.jsonQuery($scope.categories, {"Alias": $scope.currentCate});
-        if ($scope.cate) {
-          //$rootScope.isRoot = !$rootScope;
-          $scope.isRoot = !$scope.isRoot;
-        }
-      }, function (err) {
-        $log.info("请求失败");
-      });
+    /*获取全部分类*/
+    BlogService.Category.query({}, function (resp) {
+      $scope.categories = resp;
+      $scope.categories.unshift(BlogService.getAll());
+      $scope.categories.push(BlogService.getOther());
+      //取得当前分类对象数据
+      $scope.cate = BlogService.jsonQuery($scope.categories, {"Alias": $scope.currentCate});
+      if ($scope.cate) {
+        //$rootScope.isRoot = !$rootScope;
+        $scope.isRoot = !$scope.isRoot;
+      }
+    }, function (err) {
+      $log.info("请求失败");
+    });
 
     $scope.initCategoryList = function () {
 

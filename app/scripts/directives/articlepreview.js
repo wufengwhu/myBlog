@@ -18,7 +18,6 @@ angular.module('learnAngularApp')
       //transclude: true,
       //require:'^ngController',
       link: function ($scope, $element, $attrs) {
-        console.log(" right is " + $scope.right);
         //controller.post = $scope.post;
         $scope.getPreviewContent = function(){
           //修改

@@ -32,7 +32,7 @@
   <link href="styles/railscasts.css" rel="stylesheet">
   <!-- endbuild -->
 </head>
-<body ng-app="learnAngularApp" class="fuelux">
+<body ng-app="learnAngularApp" class="fuelux" ng-class=" {'modal-open': isOpen} ">
 <!--[if lte IE 8]>
 <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade
   your browser</a> to improve your experience.</p>
@@ -40,7 +40,7 @@
 <div ng-if="isRoot" class="home-loading" ng-style="homeBackGround">
   <div class="loading-con" style="display:none;" ng-style="loadStyle">
     <div class="loading-circle"></div>
-    <img alt="loading" ng-src="images/wufeng_xiao.jpg" sb-load="imgLoad($event)">
+    <img alt="loading" ng-src="images/wufeng_katong.jpg" sb-load="imgLoad($event)">
   </div>
 </div>
 
@@ -80,7 +80,7 @@
           <span class="icon-bar"></span>
         </button>
         <a href="/" class="navbar-brand">
-          <img ng-src="images/wufeng_xiao.jpg" style="height: 50px">
+          <img ng-src="images/wufeng_katong.jpg" style="height: 50px">
           <span>Wu Feng</span>
         </a>
       </div>

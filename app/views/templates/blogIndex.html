@@ -79,7 +79,7 @@
     </div>
     <div class="col-md-2 hidden-sm hidden-xs empty-block"></div>
   </div>
-  <div class="post-cover"></div>
+  <div ng-click="closeModal()" class="post-cover"></div>
   <div ng-style="modalStyle" class="post-modal col-md-7 col-sm-12 col-xs-12">
     <div class="modal-header">
       <h4><a ng-href="/blog/{{blog.post.CategoryAlias}}/{{blog.post.Alias}}" target="_blank" title="文章标题"></a>{{blog.post.Title}}</h4>
