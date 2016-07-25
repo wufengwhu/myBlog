@@ -1,7 +1,5 @@
 //
    Created by fengwu on 16/7/10.
-pre
-  | right={{right}}
 li(ng-if="post.Source == 0")
   .blog-item(ng-class="{{angular.element('.home-loading').length > 0 ? '' : '{animated:true,fadeIn: true}'}}" uid="{{post.Alias}}")
     a.preview-link(title="点击预览" ng-click="getPreviewContent()")

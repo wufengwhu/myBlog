@@ -38,6 +38,9 @@ module.exports = function(config) {
       'bower_components/ng-scrollbars/dist/scrollbars.min.js',
       'bower_components/lodash/lodash.js',
       'bower_components/restangular/dist/restangular.js',
+      'bower_components/sweetalert/dist/sweetalert.min.js',
+      'bower_components/supersized/slideshow/js/supersized.3.2.7.min.js',
+      'bower_components/supersized/slideshow/theme/supersized.shutter.min.js',
       'bower_components/angular-mocks/angular-mocks.js',
       // endbower
       'app/scripts/**/*.js',

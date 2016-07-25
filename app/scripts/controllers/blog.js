@@ -8,12 +8,14 @@
  * Controller of the learnAngularApp
  */
 angular.module('learnAngularApp')
-  .controller('BlogCtrl', function ($scope, BlogService, $log, jobConfig) {
+  .controller('BlogCtrl', function ($rootScope, $scope, BlogService, $log, jobConfig) {
     this.awesomeThings = [
       'HTML5 Boilerplate',
       'AngularJS',
       'Karma'
     ];
+
+    //hljs.initHighlightingOnLoad();
 
     /*blog*/
     $scope.pageCount = 0;
@@ -39,17 +41,23 @@ angular.module('learnAngularApp')
 
     /*init blog posts display*/
     $scope.pageIndex = 1;
+    var percent = 100 / $scope.pageIndex + "%";
+    $scope.heightPercent = {
+      height: percent
+    };
+
     $scope.pageSize = 10;
     $scope.sortBy = 'date';
 
     $scope.scrollConfig = {};
 
-    $scope.closeModal = function() {
+    $scope.closeModal = function () {
       //$(".post-modal").css("right", "-1200px");
       $scope.modalStyle.right = '-1200px';
       //$(".post-cover").fadeOut();
       angular.element(".post-cover").fadeOut();
-      $("body").removeClass("modal-open");
+      //$("body").removeClass("modal-open");
+      $rootScope.isOpen = !$rootScope.isOpen;
     };
 
 
