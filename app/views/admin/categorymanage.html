@@ -1,0 +1,56 @@
+
+<!--Created by fengwu on 16/7/25.-->
+<div class="row wrapper border-bottom white-bg page-heading" ng-controller="CategoryCtrl">
+  <div class="col-lg-8">
+    <h2>Categories</h2>
+  </div>
+</div>
+<div class="wrapper wrapper-content animated fadeIn">
+  <div class="row">
+    <div class="col-md-10 col-md-offset-1">
+      <div class="ibox">
+        <div ng-if="!loading &amp;&amp; categoryList.categories.length === 0">
+          <no-result text="No Category."></no-result>
+        </div>
+        <loading ng-if="loading" text="Loading Categories"></loading>
+        <!-- Table-->
+        <div class="dataTables_wrapper" ng-if="categoryList.categories.length &gt; 0">
+          <table class="table table-striped table-bordered table-hover dataTable" id="cate-list">
+            <thead>
+              <tr style="cursor:pointer">
+                <th ng-repeat="theaditem in theadItems" ng-click="state.filterAttr=theaditem.attr;state.reverseColumn=theaditem.attr;state.filterReverse=!state.filterReverse;">{{theaditem.name}}<i class="fa fa-unsorted" ng-if="state.reverseColumn != theaditem.attr"></i><i class="fa fa-sort-asc" ng-if="state.reverseColumn == theaditem.attr &amp;&amp; !state.filterReverse"></i><i class="fa fa-sort-desc" ng-if="state.reverseColumn == theaditem.attr &amp;&amp; state.filterReverse"></i></th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+            <tbody ng-repeat="cate in categoryList.categories | orderObjectBy:state.filterAttr:state.filterReverse">
+              <tr ng-class="accordion:true" style="cursor:pointer">
+                <td class="col-md-2"><span class="fileinput-button"><img ng-src="cateImage"/>
+                    <input class="fileupload" type="file" name="file"/></span></td>
+                <td class="col-md-2">
+                  <input class="form-control" ng-value="cate.name" type="text" placeholder="category name"/>
+                </td>
+                <td class="col-md-2">
+                  <input class="form-control" ng-value="cate.alias" type="text" placeholder="category name"/>
+                </td>
+                <td class="col-md-5">
+                  <div class="input-group cate-link"><span class="input-group-addon">
+                      <label>
+                        <input type="checkbox" ng-model="cate.checked"/>链接
+                      </label></span>
+                    <input class="form-control txtLink" type="text" ng-model="cate.link" ng-disabled="!cate.checked"/>
+                  </div>
+                </td>
+                <td class="col-md-1">
+                  <button class="remove btn btn-white" type="button" title="删除" ng-click="removeCate()"><i class="fa fa-trash-o"></i></button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+          <!--ul#cate-list.list-group.list-unstyled(ng-repeat="cate in cates")-->
+          <button class="btn btn-white" id="btnNew" ng-click="addCate()"><i class="fa fa-plus">New Category</i></button>
+          <button class="btn btn-primary pull-right" id="btnSave"><i class="fa fa-cloud-upload">Save</i></button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
