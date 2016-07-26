@@ -11,7 +11,7 @@ angular.module('learnAngularApp', [
   'ngAnimate',
   'ngCookies',
   'ngResource',
-  'ngRoute',
+  'ui.router',
   'ngSanitize',
   'ngTouch',
   'ui.grid',
@@ -43,6 +43,4 @@ angular.module('learnAngularApp', [
   //    }
   //  }
   //});
-}).config(function ($routeProvider, $locationProvider, ScrollBarsProvider) {
-});
-'use strict';
+})

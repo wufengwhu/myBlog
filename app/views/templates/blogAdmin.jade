@@ -1,3 +1,70 @@
 //
-   Created by fengwu on 16/7/23.
+    Created by fengwu on 16/7/23.
 
+body.fuelux
+  #wrapper
+    nav.navbar-default.navbar-static-side(role='navigation')
+      .sidebar-collapse
+        ul#side-menu.nav.metismenu
+          li.nav-header
+            .dropdown.profile-element
+              span
+                a(ng-href='/', target='_blank')
+                  img.img-circle.im-lg(alt='image', ng-src="images/wufeng_katong.jpg")
+              a(ng-href='/admin')
+                h4 Dashboard
+            .logo-element
+              img.img-circle.im-sm(alt='image', ng-src="images/wufeng_katong.jpg")
+          li
+            a(ng-href='/admin')
+              i.fa.fa-bar-chart-o
+              span.nav-label Analysis
+          li
+            a(ng-href='#')
+              i.fa.fa-file-text-o
+              span.nav-label  Category
+              span.fa.arrow
+            ul.nav.nav-second-level.collapse
+              li
+                a(ng-href='/admin/newarticle') New Post
+              li
+                a(ng-href='/admin/categorymanage') Category
+              li
+                a(ng-href='/admin/articlemanage') Posts
+          li
+            a(ng-href='/admin/comments')
+              i.fa.fa-comments-o
+                span.nav-label  Comments
+          li
+            a(ng-href='/admin/guestbook')
+              i.fa.fa-edit
+              span.nav-label Guest
+          li
+            a(ng-href='/admin/aboutmanage')
+              i.fa.fa-user
+              span.nav-label About
+          li
+            a(ng-href='/admin/cachemanage')
+              i.fa.fa-database
+              span.nav-label Cache
+          li
+            a(ng-href='/admin/exception')
+              i.fa.fa-bug
+              span.nav-label Site Log
+          li
+            a(ng-href='/admin/settings')
+              i.fa.fa-gears
+              span.nav-bel Settings
+
+    #page-wrapper.gray-bg
+      .row.border-bottom
+        nav.navbar.navbar-static-top(role='navigation' style='margin-bottom:0')
+          .navbar-header
+            a.navbar-minimalize.minimalize-styl-2.btn.btn-primary(href='#')
+              i.fa.fa-bars
+          form#logoutForm(ng-submit='logout()')
+            ul.nav.navbar-top-links.navbar-right
+              li
+                a(ng-href="logout()", title='Logout')
+                  i.fa.fa-power-off
+                  | Logout

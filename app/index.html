@@ -21,6 +21,7 @@
   <link rel="stylesheet" href="bower_components/supersized/slideshow/css/supersized.css" />
   <link rel="stylesheet" href="bower_components/supersized/slideshow/theme/supersized.shutter.css" />
   <link rel="stylesheet" href="bower_components/animate.css/animate.css" />
+  <link rel="stylesheet" href="bower_components/metisMenu/dist/metisMenu.css" />
   <!-- endbower -->
   <!-- endbuild -->
   <!-- build:css(.tmp) styles/main.css -->
@@ -35,6 +36,7 @@
   <link href="styles/selectlist.css" rel="stylesheet">
   <link href="styles/railscasts.css" rel="stylesheet">
   <link href="styles/account.css" rel="stylesheet">
+  <!--<link href="styles/admin.css" rel="stylesheet">-->
   <!-- endbuild -->
 </head>
 <body ng-app="learnAngularApp" class="fuelux" ng-class=" {'modal-open': isOpen} ">
@@ -101,7 +103,8 @@
   </div>
 </div>
 
-<div ng-view=""></div>
+<!--<div ng-view=""></div>-->
+<section ui-view></section>
 
 <!-- Google Analytics: change UA-XXXXX-X to be your site's ID -->
 <script>
@@ -124,7 +127,7 @@
 <script src="bower_components/angular-animate/angular-animate.js"></script>
 <script src="bower_components/angular-cookies/angular-cookies.js"></script>
 <script src="bower_components/angular-resource/angular-resource.js"></script>
-<script src="bower_components/angular-route/angular-route.js"></script>
+<script src="bower_components/angular-ui-router/release/angular-ui-router.js"></script>
 <script src="bower_components/angular-sanitize/angular-sanitize.js"></script>
 <script src="bower_components/angular-touch/angular-touch.js"></script>
 <script src="bower_components/angular-messages/angular-messages.js"></script>
@@ -139,6 +142,7 @@
 <script src="bower_components/sweetalert/dist/sweetalert.min.js"></script>
 <script src="bower_components/supersized/slideshow/js/supersized.3.2.7.min.js"></script>
 <script src="bower_components/supersized/slideshow/theme/supersized.shutter.min.js"></script>
+<script src="bower_components/metisMenu/dist/metisMenu.js"></script>
 <!-- endbower -->
 <!-- endbuild -->
 
@@ -169,7 +173,7 @@
 <script type="text/javascript" src="bower_components/ace-builds/src-min-noconflict/ext-language_tools.js"></script>
 <script src="scripts/directives/sbload.js"></script>
 <script src="scripts/highlight.pack.js" charset="utf-8"></script>
-<script src="scripts/selectlist.js"></script>
+<!--<script src="scripts/selectlist.js"></script>-->
 <script src="scripts/controllers/blog.js"></script>
 <script src="scripts/services/blogservice.js"></script>
 <script src="scripts/services/postservice.js"></script>
@@ -179,8 +183,8 @@
 <script src="scripts/services/loginintercepter.js"></script>
 <script src="scripts/services/access_levels.js"></script>
 <script src="scripts/services/auth.js"></script>
-<script src="scripts/account.js"></script>
 <script src="scripts/controllers/login.js"></script>
+<script src="scripts/controllers/category.js"></script>
 <!-- endbuild -->
 </body>
 </html>
