@@ -1,0 +1,43 @@
+
+<!--Created by fengwu on 16/7/27.-->
+<div id="wrapper">
+  <nav class="navbar-default navbar-static-side" role="navigation">
+    <div class="sidebar-collapse">
+      <ul class="nav metismenu" id="side-menu">
+        <li class="nav-header">
+          <div class="dropdown profile-element"><span><a ng-href="/" target="_blank"><img class="img-circle im-lg" alt="image" ng-src="images/wufeng_katong.jpg"/></a></span><a ng-href="/admin">
+              <h4>Dashboard</h4></a></div>
+          <div class="logo-element"><img class="img-circle im-sm" alt="image" ng-src="images/wufeng_katong.jpg"/></div>
+        </li>
+        <li ng-class="{active:state.currentMenu == 'Analysis'}"><a ng-href="#/admin" ng-click="state.currentMenu = 'Analysis'"><i class="fa fa-bar-chart-o"></i><span class="nav-label">Analysis</span></a></li>
+        <li ng-class="{active:state.currentMenu == 'Category'}"><a ng-href="#" aria-expanded="false" ng-click="state.currentMenu = 'Category'"><i class="fa fa-file-text-o"></i><span class="nav-label"> Category</span><span class="fa arrow"></span></a>
+          <ul class="nav nav-second-level collapse" aria-expanded="false">
+            <li ng-class="{active:state.viewPage == 'newPost'}"><a ng-href="/#/admin/newarticle" ng-click="state.viewPage='newPost'">New Post</a></li>
+            <li ng-class="{active:state.viewPage == 'category'}"><a ng-href="/#/admin/categorymanage" ng-click="state.viewPage='category'">Category</a></li>
+            <li ng-class="{active:state.viewPage == 'posts'}"><a ng-href="/#/admin/articlemanage" ng-click="state.viewPage='posts'">Posts</a></li>
+          </ul>
+        </li>
+        <li><a ng-href="/admin/comments"><i class="fa fa-comments-o"></i><span class="nav-label"> Comments</span></a></li>
+        <li><a ng-href="/admin/guestbook"><i class="fa fa-edit"></i><span class="nav-label">Guest</span></a></li>
+        <li><a ng-href="/admin/aboutmanage"><i class="fa fa-user"></i><span class="nav-label">About</span></a></li>
+        <li><a ng-href="/admin/cachemanage"><i class="fa fa-database"></i><span class="nav-label">Cache</span></a></li>
+        <li><a ng-href="/admin/exception"><i class="fa fa-bug"></i><span class="nav-label">Site Log</span></a></li>
+        <li><a ng-href="/admin/settings"><i class="fa fa-gears"></i><span class="nav-bel">Settings</span></a></li>
+      </ul>
+    </div>
+  </nav>
+  <div class="gray-bg" id="page-wrapper">
+    <div class="row border-bottom">
+      <nav class="navbar navbar-static-top" role="navigation" style="margin-bottom:0">
+        <div class="navbar-header"><a class="navbar-minimalize minimalize-styl-2 btn btn-primary" href="#"><i class="fa fa-bars"></i></a></div>
+        <form id="logoutForm" ng-submit="logout()">
+          <ul class="nav navbar-top-links navbar-right">
+            <li><a ng-href="logout()" title="Logout"><i class="fa fa-power-off"></i>Logout</a></li>
+          </ul>
+        </form>
+      </nav>
+    </div>
+    <div ui-view="category"></div>
+    <div ui-view=""></div>
+  </div>
+</div>
