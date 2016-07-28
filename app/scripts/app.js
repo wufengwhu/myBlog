@@ -19,7 +19,11 @@ angular.module('learnAngularApp', [
   'ngMessages',
   'ui.ace',
   "ngScrollbars",
-  'restangular'
+  'restangular',
+  'oc.lazyLoad',
+  'pascalprecht.translate',
+  'ngIdle',
+  'ui.bootstrap'
 ]).run(function ($rootScope, $location, Auth) {
   $rootScope.currentDate = new Date().getFullYear();
   $rootScope.recordNo = '鄂ICP备XXX号';

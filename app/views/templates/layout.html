@@ -1,59 +1,19 @@
 
-<!--Created by fengwu on 16/7/1.--><!DOCTYPE html>
-<html lang="zh-CN">
-  <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="keywords" content="blog,iBlog">
-    <meta name="description" content="iBlog">
-    <link href="bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link href="styles/bootstrap-addon.css" rel="stylesheet">
-    <link href="styles/site.css" rel="stylesheet">
-    <link href="bower_components/font-awesome/css/font-awesome.min.css" rel="stylesheet">
-    <link href="styles/share.css" rel="stylesheet">
-    <link href="styles/animate-custom.css" rel="stylesheet">
-    <title></title>
-  </head>
-  <body class="fuelux">
-    <link href="styles/home-loading.css" rel="stylesheet">
-    <div id="home-loading" class="home-loading">
-      <div id="loading-con" style="display:none;" class="loading-con">
-        <div class="loading-circle"></div>
-        <script>
-          var home_loading_begin = new Date();
-          document.body.style.overflow = "hidden";
-          function imgLoad() {
-            document.getElementById("home-loading").style.background = "#f3f3f4";
-            document.getElementById("loading-con").style.display = "block";
-          }
-        </script><img id="loadingImg" alt="loading" src="images/wufeng_xiao.jpg" onload="imgLoad();">
+<!--Created by fengwu on 16/7/1.-->
+<div class="header">
+  <div role="navigation" class="navbar navbar-default navbar-fixed-top">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" data-toggle="collapse" data-target=".navbar-collapse" class="navbar-toggle"><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button><a href="/" class="navbar-brand"><img ng-src="images/wufeng_katong.jpg" style="height: 50px"/><span>Wu Feng Blog</span></a>
+      </div>
+      <div class="navbar-collapse collapse">
+        <ul class="nav navbar-nav my-nav-pills navbar-right">
+          <li class="active"><a ng-href="/blog"><i class="fa fa-file-text-o fa-fw"></i>博客</a></li>
+          <li><a ng-href="/guestbook"><i class="fa fa-edit fa-fw"></i>留言</a></li>
+          <li><a ng-href="/about"><i class="fa fa-user fa-fw"></i>关于</a></li>
+          <li><a href="/locale/chinese"><i class="fa fa-language fa-fw"></i>中文</a></li>
+        </ul>
       </div>
     </div>
-    <div class="navbar navbar-default navbar-fixed-top">
-      <div class="container-fluid">
-        <div class="navbar-header">
-          <button type="button" data-toggle="collapse" data-target=".navbar-collapse" class="navbar-toggle"><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button><a href="/" class="navbar-brand"><img src="/images/zhr.jpg"> <span>Wu Feng Blog</span></a>
-        </div>
-        <div class="navbar-collapse collapse">
-          <ul class="nav navbar-nav my-nav-pills navbar-right">
-            <li><a href="/blog"><i class="fa fa-file-text-o fa-fw"></i> "blog"</a></li>
-            <li><a href="/guestbook"><i class="fa fa-edit fa-fw"></i> "message"</a></li>
-            <li><a href="/about"><i class="fa fa-user fa-fw"></i> "about"</a></li>
-            <li><a href="/locale/chinese"><i class="fa fa-language fa-fw"></i> "language"</a></li>
-          </ul>
-        </div>
-      </div>
-    </div>
-    <!--百度统计代码-->
-    <script>
-      var _hmt = _hmt || [];
-      (function () { 
-        var hm = document.createElement("script");
-        hm.src = "//hm.baidu.com/hm.js?";
-        var s = document.getElementsByTagName("script")[0];
-        s.parentNode.insertBefore(hm, s);
-      })();
-    </script>
-  </body>
-</html>
+  </div>
+</div>

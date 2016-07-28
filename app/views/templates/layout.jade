@@ -1,72 +1,33 @@
 //Created by fengwu on 16/7/1.
-doctype html
-html(lang='zh-CN')
-  head
-    meta(http-equiv='Content-Type', content='text/html; charset=utf-8')
-    meta(charset='utf-8')
-    meta(name='viewport', content='width=device-width, initial-scale=1.0')
-    meta(name='keywords',content='#{keywords ? keywords : "blog,iBlog"}')
-    meta(name='description',content='#{description ? description : "iBlog"}')
-    link(href='bower_components/bootstrap/dist/css/bootstrap.min.css', rel='stylesheet')
-    link(href='styles/bootstrap-addon.css', rel='stylesheet')
-    link(href='styles/site.css', rel='stylesheet')
-    link(href='bower_components/font-awesome/css/font-awesome.min.css', rel='stylesheet')
-    link(href='styles/share.css', rel='stylesheet')
-    link(href='styles/animate-custom.css', rel='stylesheet')
-    title=title
-  body.fuelux
-    if(true)
-      link(href='styles/home-loading.css', rel='stylesheet')
-      #home-loading.home-loading
-        #loading-con.loading-con(style='display:none;')
-          .loading-circle
-          script.
-            var home_loading_begin = new Date();
-            document.body.style.overflow = "hidden";
-            function imgLoad() {
-              document.getElementById("home-loading").style.background = "#f3f3f4";
-              document.getElementById("loading-con").style.display = "block";
-            }
-          img#loadingImg(alt='loading', src='images/wufeng_xiao.jpg', onload='imgLoad();')
-    .navbar.navbar-default.navbar-fixed-top
-      .container-fluid
-        .navbar-header
-          button.navbar-toggle(type='button', data-toggle='collapse', data-target='.navbar-collapse')
-            span.icon-bar
-            span.icon-bar
-            span.icon-bar
-          a.navbar-brand(href='/')
-            img(src=LogoPath)
-            =' '
-            span='Wu Feng Blog'
-        .navbar-collapse.collapse
-          ul.nav.navbar-nav.my-nav-pills.navbar-right
-            li
-              a(href='/blog')
-                i.fa.fa-file-text-o.fa-fw
-                |  "blog"
-            if('true' === 'true')
-              li
-                a(href='/guestbook')
-                  i.fa.fa-edit.fa-fw
-                  |  "message"
-            li
-              a(href='/about')
-                i.fa.fa-user.fa-fw
-                |  "about"
-            li
-              a(href='/locale/chinese')
-                i.fa.fa-language.fa-fw
-                |  "language"
-    block content
-    if('true' === 'true')
-      //百度统计代码
-      script.
-        var _hmt = _hmt || [];
-        (function () {
-          var hm = document.createElement("script");
-          hm.src = "//hm.baidu.com/hm.js?";
-          var s = document.getElementsByTagName("script")[0];
-          s.parentNode.insertBefore(hm, s);
-        })();
+
+.header
+  .navbar.navbar-default.navbar-fixed-top(role="navigation")
+    .container-fluid
+      .navbar-header
+        button.navbar-toggle(type='button', data-toggle='collapse', data-target='.navbar-collapse')
+          span.icon-bar
+          span.icon-bar
+          span.icon-bar
+        a.navbar-brand(href='/')
+          img(ng-src="images/wufeng_katong.jpg" style="height: 50px")
+          span='Wu Feng Blog'
+      .navbar-collapse.collapse
+        ul.nav.navbar-nav.my-nav-pills.navbar-right
+          li.active
+            a(ng-href='/blog')
+              i.fa.fa-file-text-o.fa-fw
+              | 博客
+          li
+            a(ng-href='/guestbook')
+              i.fa.fa-edit.fa-fw
+              | 留言
+          li
+            a(ng-href='/about')
+              i.fa.fa-user.fa-fw
+              | 关于
+          li
+            a(href='/locale/chinese')
+              i.fa.fa-language.fa-fw
+              | 中文
+block content
 

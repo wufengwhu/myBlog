@@ -1,20 +1,19 @@
 
-<!--Created by fengwu on 16/7/25.-->
 <div class="row wrapper border-bottom white-bg page-heading" ng-controller="CategoryCtrl">
   <div class="col-lg-8">
     <h2>Categories</h2>
   </div>
 </div>
-<div class="wrapper wrapper-content animated fadeIn">
+<div class="wrapper-content animated fadeIn">
   <div class="row">
     <div class="col-md-10 col-md-offset-1">
       <div class="ibox">
-        <div ng-if="!loading &amp;&amp; categoryList.categories.length === 0">
+        <div ng-if="!loading &amp;&amp; categories.length === 0">
           <no-result text="No Category."></no-result>
         </div>
         <loading ng-if="loading" text="Loading Categories"></loading>
         <!-- Table-->
-        <div class="dataTables_wrapper" ng-if="categoryList.categories.length &gt; 0">
+        <div class="dataTables_wrapper" ng-if="categories.length &gt; 0">
           <table class="table table-striped table-bordered table-hover dataTable" id="cate-list">
             <thead>
               <tr style="cursor:pointer">
@@ -22,9 +21,9 @@
                 <th>Actions</th>
               </tr>
             </thead>
-            <tbody ng-repeat="cate in categoryList.categories | orderObjectBy:state.filterAttr:state.filterReverse">
-              <tr ng-class="accordion:true" style="cursor:pointer">
-                <td class="col-md-2"><span class="fileinput-button"><img ng-src="cateImage"/>
+            <tbody ng-repeat="cate in categories | orderObjectBy:state.filterAttr:state.filterReverse">
+              <tr ng-class="{'accordion':true}" style="cursor:pointer">
+                <td class="col-md-2"><span class="fileinput-button"><img ng-src="{{cate.cateImage}}"/>
                     <input class="fileupload" type="file" name="file"/></span></td>
                 <td class="col-md-2">
                   <input class="form-control" ng-value="cate.name" type="text" placeholder="category name"/>
@@ -48,7 +47,7 @@
           </table>
           <!--ul#cate-list.list-group.list-unstyled(ng-repeat="cate in cates")-->
           <button class="btn btn-white" id="btnNew" ng-click="addCate()"><i class="fa fa-plus">New Category</i></button>
-          <button class="btn btn-primary pull-right" id="btnSave"><i class="fa fa-cloud-upload">Save</i></button>
+          <button class="btn btn-primary pull-right" id="btnSave" ng-click="saveCategories()"><i class="fa fa-cloud-upload">Save</i></button>
         </div>
       </div>
     </div>

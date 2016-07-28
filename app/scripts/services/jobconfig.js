@@ -12,7 +12,7 @@ angular.module('learnAngularApp')
     "SiteName": "iBlog",
     "SiteDomain": "www.example.com",
     "RecordNo": "浙ICP备XXX号",
-    "LogoPath": "/images/zhr.jpg",
+    "LogoPath": "/images/wufeng_katong.jpg",
     "PageSize": "10",
     "ExpandMenu": "false",
     "CacheExpired": "300",
