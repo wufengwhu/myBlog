@@ -18,12 +18,13 @@ angular.module('learnAngularApp', [
   'mgo-angular-wizard',
   'ngMessages',
   'ui.ace',
-  "ngScrollbars",
+  'ngScrollbars',
   'restangular',
   'oc.lazyLoad',
   'pascalprecht.translate',
   'ngIdle',
-  'ui.bootstrap'
+  'ui.bootstrap',
+  'blueimp.fileupload'
 ]).run(function ($rootScope, $location, Auth) {
   $rootScope.currentDate = new Date().getFullYear();
   $rootScope.recordNo = '鄂ICP备XXX号';

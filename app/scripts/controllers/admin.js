@@ -20,4 +20,6 @@ angular.module('learnAngularApp')
     };
     //MetsiMenu
     $('#side-menu').metisMenu();
+    
+    
   });

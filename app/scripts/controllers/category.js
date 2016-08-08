@@ -13,6 +13,8 @@ angular.module('learnAngularApp')
       'AngularJS',
       'Karma'
     ];
+    
+    
     $scope.loading = true;
     $scope.state = {
       filterAttr: 'create_time', filterReverse: true, reverseColumn: 'create_time'

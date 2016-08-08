@@ -1,44 +1,54 @@
 .row.wrapper.border-bottom.white-bg.page-heading(ng-controller="CategoryCtrl")
   .col-lg-8
     h2 Categories
+    ol.breadcrumb
+      li
+        a(ng-href="#/admin") Admin
+      li
+        a Meta
+      li.active
+        strong Category
 .wrapper-content.animated.fadeIn
   .row
-    .col-md-10.col-md-offset-1
-      .ibox
+    .col-lg-12
+      .ibox.float-e-margins
+        .ibox-title
+          h5 Category Table
         div(ng-if='!loading && categories.length === 0')
           no-result(text="No Category.")
         loading(ng-if="loading" text="Loading Categories")
-        // Table
-        .dataTables_wrapper(ng-if='categories.length > 0')
-          table#cate-list.table.table-striped.table-bordered.table-hover.dataTable
-            thead
-              tr(style="cursor:pointer")
-                th(ng-repeat="theaditem in theadItems" ng-click="state.filterAttr=theaditem.attr;state.reverseColumn=theaditem.attr;state.filterReverse=!state.filterReverse;")
-                  | {{theaditem.name}}
-                  i.fa.fa-unsorted(ng-if='state.reverseColumn != theaditem.attr')
-                  i.fa.fa-sort-asc(ng-if='state.reverseColumn == theaditem.attr && !state.filterReverse')
-                  i.fa.fa-sort-desc(ng-if='state.reverseColumn == theaditem.attr && state.filterReverse')
-                th Actions
-            tbody(ng-repeat="cate in categories | orderObjectBy:state.filterAttr:state.filterReverse")
-              tr(ng-class="{'accordion':true}" style="cursor:pointer")
-                td.col-md-2
-                  span.fileinput-button
-                    img(ng-src="{{cate.cateImage}}")
-                    input.fileupload(type="file" name="file")
-                td.col-md-2
-                  input.form-control(ng-value="cate.name" type="text" placeholder="category name")
-                td.col-md-2
-                  input.form-control(ng-value="cate.alias" type="text" placeholder="category name")
-                td.col-md-5
-                  .input-group.cate-link
-                    span.input-group-addon
-                      label
-                        input(type="checkbox" ng-model="cate.checked")
-                        | 链接
-                    input.form-control.txtLink(type="text", ng-model="cate.link" ng-disabled="!cate.checked")
-                td.col-md-1
-                  button.remove.btn.btn-white(type="button", title="删除" ng-click="removeCate()")
-                    i.fa.fa-trash-o
+
+        .ibox-content
+          .table-responsive(ng-if='categories.length > 0')
+            table#cate-list.table.table-striped.dataTable
+              thead
+                tr(style="cursor:pointer")
+                  th(ng-repeat="theaditem in theadItems" ng-click="state.filterAttr=theaditem.attr;state.reverseColumn=theaditem.attr;state.filterReverse=!state.filterReverse;")
+                    | {{theaditem.name}}
+                    i.fa.fa-unsorted(ng-if='state.reverseColumn != theaditem.attr')
+                    i.fa.fa-sort-asc(ng-if='state.reverseColumn == theaditem.attr && !state.filterReverse')
+                    i.fa.fa-sort-desc(ng-if='state.reverseColumn == theaditem.attr && state.filterReverse')
+                  th Actions
+              tbody(ng-repeat="cate in categories | orderObjectBy:state.filterAttr:state.filterReverse")
+                tr(ng-class="{'accordion':true}" style="cursor:pointer")
+                  td.col-md-2
+                    span.fileinput-button
+                      img(ng-src="{{cate.cateImage}}")
+                      input.fileupload(type="file" name="file" file-upload="options")
+                      //file-upload.fileupload(url="" auto-upload="true" type='image' name="file")
+                  td.col-md-2
+                    input.form-control(ng-value="cate.name" type="text" placeholder="category name")
+                  td.col-md-2
+                    input.form-control(ng-value="cate.alias" type="text" placeholder="category name")
+                  td.col-md-5
+                    .input-group.cate-link
+                      span.input-group-addon
+                        label
+                          input.i-checks(type="checkbox" ng-model="cate.checked" icheck)
+                      input.form-control.txtLink(type="text", ng-model="cate.link" ng-disabled="!cate.checked")
+                  td.col-md-1
+                    button.remove.btn.btn-white(type="button", title="删除" ng-click="removeCate()")
+                      i.fa.fa-trash-o
           //ul#cate-list.list-group.list-unstyled(ng-repeat="cate in cates")
           button#btnNew.btn.btn-white(ng-click="addCate()")
             i.fa.fa-plus

@@ -72,6 +72,9 @@ angular.module('learnAngularApp')
                 name: 'admin',
                 files: ['styles/admin.css', 'scripts/inspinia.js',
                   'bower_components/metisMenu/dist/metisMenu.css', 'bower_components/metisMenu/dist/metisMenu.js']
+              },
+              {
+                files: ['bower_components/iCheck/skins/square/green.css', 'bower_components/iCheck/icheck.min.js']
               }
             ])
           }
@@ -101,9 +104,11 @@ angular.module('learnAngularApp')
             return $ocLazyLoad.load([
               {
                 serie: true,
-                name: 'category',
-                files: ['styles/admin.css', 'scripts/inspinia.js', 'views/templates/login.html',
+                name: 'metisMenu',
+                files: ['styles/admin.css', 'scripts/inspinia.js',
                   'bower_components/metisMenu/dist/metisMenu.css', 'bower_components/metisMenu/dist/metisMenu.js']
+              }, {
+                files: ['bower_components/iCheck/skins/square/green.css', 'bower_components/iCheck/icheck.min.js']
               }
             ])
           }

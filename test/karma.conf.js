@@ -43,6 +43,13 @@ module.exports = function(config) {
       'bower_components/ng-idle/angular-idle.js',
       'bower_components/angular-translate/angular-translate.js',
       'bower_components/angular-bootstrap/ui-bootstrap-tpls.js',
+      'bower_components/blueimp-file-upload/js/jquery.iframe-transport.js',
+      'bower_components/blueimp-file-upload/js/vendor/jquery.ui.widget.js',
+      'bower_components/blueimp-file-upload/js/jquery.fileupload.js',
+      'bower_components/blueimp-file-upload/js/jquery.fileupload-process.js',
+      'bower_components/blueimp-file-upload/js/jquery.fileupload-image.js',
+      'bower_components/blueimp-file-upload/js/jquery.fileupload-validate.js',
+      'bower_components/blueimp-file-upload/js/jquery.fileupload-angular.js',
       'bower_components/angular-mocks/angular-mocks.js',
       // endbower
       'app/scripts/**/*.js',
